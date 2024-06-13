@@ -1,7 +1,7 @@
 <?php
    // acesso a dados usando retorno (matriz de dados)
    //diretamente da tabela/banco de dados
-    include 'conexao.php';
+    include 'C:\xampp\htdocs\Trabalho-Almir-phpvs\DAL\conexao.php';
     $sql = "select * from cliente;";
     $con = Conexao::conectar(); 
     $lstClt = $con->query($sql); 

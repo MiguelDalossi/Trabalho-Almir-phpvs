@@ -1,5 +1,5 @@
 <?php
-    require_once 'C:\xampp\htdocs\Trabalho-Almir-phpvs\conexao.php';
+    require_once 'C:\xampp\htdocs\Trabalho-Almir-phpvs\DAL\conexao.php';
     require_once 'C:\xampp\htdocs\Trabalho-Almir-phpvs\MODEL\Cliente.php';
 
     $sql = "select * from cliente;";
