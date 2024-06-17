@@ -43,7 +43,7 @@
               <td> <?php echo $clt->getCPF(); ?> </td>
               <td> <?php echo $clt->gettelefone();?> </td>
               <td>
-              <a class="btn-floating btn-small waves-effect waves-light orange" onclick="JavaScript:location.href='formEdtClt.php?id=' + '<?php echo $eqpto->getID();?>'">
+              <a class="btn-floating btn-small waves-effect waves-light orange" onclick="JavaScript:location.href='formEdtClt.php?id=' + '<?php echo $clt->getID();?>'">
               <i class="material-icons">edit</i></a>
               </td>
            </tr>

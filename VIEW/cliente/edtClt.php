@@ -5,18 +5,14 @@
 
     $cliente = new \MODEL\Cliente();
 
+    $cliente->setId($_POST['txtID']);
     $cliente->setNome($_POST['txtnome']);
     $cliente->setcpf($_POST['txtCpf']);
     $cliente->settelefone($_POST['txttel']);
     
 
     $bllClt = new \BLL\Cliente(); 
-    $result =  $bllClt->Insert($cliente);  
+    $result =  $bllClt->Update($cliente);  
 
-    if ($result->errorCode() == '00000') {
-        header("location: lstCliente.php");
-      }
-      else echo $result->errorInfo();
-  
-
+    header("location: lstCliente.php");
 ?>

@@ -34,8 +34,8 @@
 
         $clt = new \MODEL\Cliente();
         $clt->setId($linha['id']);
-        $clt->setNome($linha['Nome']);
-        $clt->setcpf($linha['Cpf']);
+        $clt->setNome($linha['nome']);
+        $clt->setcpf($linha['cpf']);
         $clt->settelefone($linha['telefone']);
    
         return $clt;
@@ -47,6 +47,17 @@
         
         $con = Conexao::conectar();
         $result = $con->query($sql);
+        Conexao::desconectar();
+
+        return $result; 
+    }
+
+    public function Update(\MODEL\Cliente $cliente){
+        $sql = "UPDATE cliente SET nome = ?, cpf = ?, telefone = ? WHERE id = ?;";
+        
+        $con = Conexao::conectar();
+        $query = $con->prepare($sql);
+        $result = $query->execute(array($cliente->getNome(), $cliente->getCPF(), $cliente->gettelefone(), $cliente->getID()));
         Conexao::desconectar();
 
         return $result; 

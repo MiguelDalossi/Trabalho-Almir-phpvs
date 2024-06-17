@@ -21,5 +21,11 @@
         return $dalClt->Insert($cliente);
     }
 
+    public function Update(\MODEL\Cliente $cliente) {
+        $dalClt = new \DAL\Cliente();
+        
+        return $dalClt->Update($cliente);
+    }
+
     }
 ?>

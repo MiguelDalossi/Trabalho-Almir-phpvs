@@ -1,3 +1,16 @@
+<?php 
+    include_once 'C:\xampp\htdocs\Trabalho-Almir-phpvs\MODEL\Cliente.php';
+    include_once 'C:\xampp\htdocs\Trabalho-Almir-phpvs\BLL\Cliente.php';
+
+    $id = $_GET['id'];
+    
+
+    $bllClt = new BLL\Cliente();
+    $cliente = $bllClt->SelectByID($id);
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -12,26 +25,32 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inserir Clientes</title>
+    <title>Editar Cliente</title>
 </head>
 
 <body>
     <div class="container #80cbc4 teal lighten-3 black-text col s12">
         <div class="center green">
-            <h1>Inserir Cliente</h1>
+            <h1>Editar Cliente</h1>
         </div>
         <div class="row">
-            <form action="insClt.php" method="POST" class="col s12">
+            <form action="edtClt.php" method="POST" class="col s12">
                 <div class="input-field col s8">
-                    <input placeholder="informe o Nome" id="nome" name="txtnome" type="text" class="validate">
+                    <label for="id" class="black-text bold">ID: <?php echo $cliente->getID() ?></label>
+                    </br> </br>
+                    <input type="hidden" name="txtID" value=<?php echo $id; ?>>
+                </div>
+            
+                <div class="input-field col s8">
+                    <input placeholder="informe o Nome" id="nome" name="txtnome" type="text" class="validate" value="<?php echo $cliente->getNome(); ?>">
                     <label id="nome" for="nome">Nome</label>
                 </div>
                 <div class="input-field col s8">
-                    <input placeholder="informe o CPF" id="cpf" name="txtCpf" type="number" class="validate">
+                    <input placeholder="informe o CPF" id="cpf" name="txtCpf" type="number" class="validate" value="<?php echo $cliente->getCPF(); ?>">
                     <label id="cpf" for="cpf">CPF</label>
                 </div>
                 <div class="input-field col s8">
-                    <input placeholder="informe o Telefone" id="telenone" name="txttel" type="number" class="validate">
+                    <input placeholder="informe o Telefone" id="telenone" name="txttel" type="number" class="validate" value="<?php echo $cliente->gettelefone(); ?>">
                     <label id="telefone" for="telefone">Telefone</label>
                 </div>
                 <div class="brown lighten-3 center col s12">
