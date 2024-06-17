@@ -1,4 +1,7 @@
 <?php
+    namespace DAL;
+
+    use PDO; 
    class Conexao {
     private static $dbNome ='supermercado'; 
     private static $dbHost = 'localhost';
@@ -25,7 +28,7 @@
         return self::$cont; 
     }
 
-    public static function desconectar (){
+    public static function desconectar(){
         self::$cont = null; 
     }
 

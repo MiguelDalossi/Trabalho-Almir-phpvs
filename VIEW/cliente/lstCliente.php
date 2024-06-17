@@ -1,18 +1,10 @@
 <?php
-    include_once 'C:\xampp\htdocs\Trabalho-Almir-phpvs\DAL\Cliente.php';
+    include_once 'C:\xampp\htdocs\Trabalho-Almir-phpvs\BLL\Cliente.php';
+    use BLL\Cliente; 
 
-    $sql = "select * from cliente;";
-    $con = Conexao::conectar();
-    $dados = $con->query($sql);
+    $bllClt = new \BLL\Cliente(); 
+    $lstClt = $bllClt->Select(); 
 
-    foreach($dados as $linha){
-        $clt = new \MODEL\Cliente();
-        $clt->setId($linha['id']);
-        $clt->setNome($linha['nome']);
-        $clt->setcpf($linha['cpf']);
-        $clt->settelefone($linha['telefone']);
-        $lstClt[]=$clt;
-    }
 ?>
 
 <!DOCTYPE html>
@@ -23,6 +15,8 @@
 
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
             
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -30,12 +24,16 @@
 </head>
 <body>
     <h1>Listar Cliente</h1>
+
+    <a class="btn-floating btn-large waves-effect waves-light green"><i class="material-icons" onclick="JavaScript:location.href='formClt.php'">add</i></a>
+
     <table class="highlight">
         <tr>
             <th>ID</th>
             <th>Nome</th>
             <th>CPF</th>
             <th>Telefone</th>
+            <th>Operações</th>
         </tr>
 
         <?php foreach($lstClt as $clt) {?>
@@ -44,6 +42,10 @@
               <td> <?php echo $clt->getNome(); ?> </td>
               <td> <?php echo $clt->getCPF(); ?> </td>
               <td> <?php echo $clt->gettelefone();?> </td>
+              <td>
+              <a class="btn-floating btn-small waves-effect waves-light orange" onclick="JavaScript:location.href='formEdtClt.php?id=' + '<?php echo $eqpto->getID();?>'">
+              <i class="material-icons">edit</i></a>
+              </td>
            </tr>
         <?php } ?>
     </table>
