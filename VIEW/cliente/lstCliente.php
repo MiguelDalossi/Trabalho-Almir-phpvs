@@ -45,6 +45,12 @@
               <td>
               <a class="btn-floating btn-small waves-effect waves-light orange" onclick="JavaScript:location.href='formEdtClt.php?id=' + '<?php echo $clt->getID();?>'">
               <i class="material-icons">edit</i></a>
+             
+              <a class="btn-floating btn-small waves-effect waves-light blue" onclick="JavaScript:location.href='formDetClt.php?id=' + '<?php echo $clt->getID();?>'">
+              <i class="material-icons">search</i></a>
+
+              <a class="btn-floating btn-small waves-effect waves-light red" onclick="JavaScript: remover( <?php echo $clt->getId(); ?> )">
+              <i class="material-icons">delete</i></a>
               </td>
            </tr>
         <?php } ?>
@@ -52,3 +58,10 @@
     
 </body>
 </html>
+<script>
+    function remover(id) {
+        if (confirm('Excluir o Equipamento ' + id + '?')) {
+            location.href = 'remClt.php?id=' + id;
+        }
+    }
+</script>

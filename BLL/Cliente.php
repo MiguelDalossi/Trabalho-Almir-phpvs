@@ -27,5 +27,11 @@
         return $dalClt->Update($cliente);
     }
 
+    public function Delete(int $id) {
+        $dalClt = new \DAL\Cliente();
+        
+        return $dalClt->Delete($id);
+    }
+
     }
 ?>

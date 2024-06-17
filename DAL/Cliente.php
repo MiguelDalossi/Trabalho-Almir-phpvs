@@ -64,11 +64,17 @@
 
     }
 
-        public function SelectId(int $id){}
-        public function SelectNome(string $nome){}
-        public function SelectCpf(int $cpf){}
-        public function Selecttelefone(int $telefone){}
+    public function Delete(int $id){
+        $sql = "delete from cliente WHERE id = ?;";
+        
+        $con = Conexao::conectar();
+        $query = $con->prepare($sql);
+        $result = $query->execute(array($id));
+        Conexao::desconectar();
+
+        return $result; 
+
     }
 
-
+    }
 ?>
