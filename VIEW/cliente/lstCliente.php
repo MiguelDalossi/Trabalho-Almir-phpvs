@@ -23,6 +23,8 @@
     <title>Listar Cliente Model</title>
 </head>
 <body>
+    <?php include_once '../menu.php'; ?>
+
     <h1>Listar Cliente</h1>
 
     <a class="btn-floating btn-large waves-effect waves-light green"><i class="material-icons" onclick="JavaScript:location.href='formClt.php'">add</i></a>
@@ -60,7 +62,7 @@
 </html>
 <script>
     function remover(id) {
-        if (confirm('Excluir o Equipamento ' + id + '?')) {
+        if (confirm('Excluir o Cliente ' + id + '?')) {
             location.href = 'remClt.php?id=' + id;
         }
     }

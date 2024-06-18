@@ -29,6 +29,7 @@
 </head>
 
 <body>
+    <?php include_once '../menu.php'; ?>
     <div class="container #80cbc4 teal lighten-3 black-text col s12">
         <div class="center green">
             <h1>Editar Cliente</h1>
