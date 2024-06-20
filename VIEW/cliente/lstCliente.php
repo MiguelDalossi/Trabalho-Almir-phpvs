@@ -57,7 +57,7 @@
            </tr>
         <?php } ?>
     </table>
-    
+    <?php include_once '../footer.php'; ?>
 </body>
 </html>
 <script>
