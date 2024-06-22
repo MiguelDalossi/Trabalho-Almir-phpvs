@@ -33,5 +33,10 @@
         return $dalClt->Delete($id);
     }
 
+    public function SelectNome(string $nome){
+        $dalClt = new \DAL\Cliente(); 
+        return $dalClt->SelectNome($nome);
+    }
+
     }
 ?>

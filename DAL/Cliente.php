@@ -76,5 +76,34 @@
 
     }
 
+    public function SelectNome(string $nome){
+
+        $sql = "select * from cliente WHERE nome like  '%" . $nome .  "%' order by nome;";
+     //   $sql = "select * from operador WHERE nome like  '%?%' order by nome;";
+
+        $pdo = Conexao::conectar(); 
+        $query = $pdo->prepare($sql);
+        $result = $pdo->query($sql); 
+                  
+        // echo count ($result);
+        $lstClt = null; 
+        foreach($result as $linha){
+                      
+          $cliente = new \MODEL\Cliente();
+  
+          $cliente->setId($linha['id']);
+          $cliente->setNome($linha['nome']);
+
+          $cliente->setcpf($linha['cpf']); 
+     
+          $cliente->settelefone($linha['telefone']); 
+  
+          $lstClt[] = $cliente; 
+
+        }
+        return  $lstClt;
+
+      }
+
     }
 ?>

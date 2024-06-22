@@ -22,7 +22,7 @@
         <li><a href="badges.html">Funcionarios</a></li>
         <li><a href="collapsible.html">Cargos</a></li>
         <li><a href="collapsible.html">Produtos</a></li>
-        <li><a href="collapsible.html">Logout</a></li>
+        <li><a href="/Trabalho-Almir-phpvs/VIEW/logout.php">Logout</a></li>
       </ul>
     </div>
   </nav>
