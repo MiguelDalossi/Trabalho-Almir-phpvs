@@ -22,29 +22,29 @@
         <div class="center green">
             <h1>Inserir Cargo</h1>
         </div>
-        <div class="row  black-text">
-            <form action="insCar.php" method="POST" class="col s12">
+        <div class="row black-text">
+            <form action="insCar.php" method="POST" class="col s12" onsubmit="return validateForm()">
                 <div class="input-field col s8">
-                    <input placeholder="informe o Nome do Cargo" id="nome" name="txtNome" type="text"
-                        class="validate">
-                    <label id="nome" for="nome">Nome</label>
+                    <input placeholder="Informe o Nome do Cargo" id="nome" name="txtNome" type="text"
+                        class="validate" required pattern="^[A-Za-z\s]{2,30}$" title="Nome deve ter entre 2 e 30 caracteres e conter apenas letras e espaços">
+                    <label for="nome">Nome</label>
                 </div>
 
                 <div class="input-field col s8">
-                    <input placeholder="informe a Descrição" id="descricao" name="txtDesc" type="text"
-                        class="validate">
+                    <input placeholder="Informe a Descrição" id="descricao" name="txtDesc" type="text"
+                        class="validate" required pattern="^[A-Za-z\s]{2,50}$" title="Descrição deve ter entre 2 e 50 caracteres e conter apenas letras e espaços">
                     <label for="descricao">Descrição</label>
                 </div>
 
                 <div class="input-field col s8">
-                    <input placeholder="informe o Salario" id="salario" name="txtSal" type="number"
-                        class="validate">
-                    <label for="descricao">salario</label>
+                    <input placeholder="Informe o Salário" id="salario" name="txtSal" type="number"
+                        class="validate" required min="1" max="9999999" title="Salário deve ser um número entre 1 e 9999999">
+                    <label for="salario">Salário</label>
                 </div>
                 <div class="input-field col s8">
-                    <input placeholder="informe a Quantidade de funcionarios" id="qtdfunc" name="txtQtdfunc" type="number"
-                        class="validate">
-                    <label for="compra">Quantidade de funcionarios</label>
+                    <input placeholder="Informe a Quantidade de Funcionários" id="qtdfunc" name="txtQtdfunc" type="number"
+                        class="validate" required min="1" max="9999" title="Quantidade de funcionários deve ser um número entre 1 e 9999">
+                    <label for="qtdfunc">Quantidade de Funcionários</label>
                 </div>
 
                 <div class="brown lighten-3 center col s12">
@@ -65,6 +65,42 @@
             </form>
         </div>
     </div>
+
+    <script>
+        function validateForm() {
+            const nome = document.getElementById('nome').value;
+            const descricao = document.getElementById('descricao').value;
+            const salario = document.getElementById('salario').value;
+            const qtdfunc = document.getElementById('qtdfunc').value;
+
+            const nomeRegex = /^[A-Za-z\s]{2,30}$/;
+            const descricaoRegex = /^[A-Za-z\s]{2,50}$/;
+            const salarioRegex = /^\d{1,7}$/;
+            const qtdfuncRegex = /^\d{1,4}$/;
+
+            if (!nomeRegex.test(nome)) {
+                alert("Nome deve ter entre 2 e 30 caracteres e conter apenas letras e espaços");
+                return false;
+            }
+
+            if (!descricaoRegex.test(descricao)) {
+                alert("Descrição deve ter entre 2 e 50 caracteres e conter apenas letras e espaços");
+                return false;
+            }
+
+            if (!salarioRegex.test(salario)) {
+                alert("Salário deve ser um número entre 1 e 9999999");
+                return false;
+            }
+
+            if (!qtdfuncRegex.test(qtdfunc)) {
+                alert("Quantidade de funcionários deve ser um número entre 1 e 9999");
+                return false;
+            }
+
+            return true;
+        }
+    </script>
 </body>
 
-</html
+</html>
