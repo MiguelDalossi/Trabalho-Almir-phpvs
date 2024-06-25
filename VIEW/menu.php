@@ -20,7 +20,7 @@
       <ul id="nav-mobile" class="left hide-on-med-and-down">
         <li><a href="/Trabalho-Almir-phpvs/VIEW/cliente/lstCliente.php">Clientes</a></li>
         <li><a href="badges.html">Funcionarios</a></li>
-        <li><a href="collapsible.html">Cargos</a></li>
+        <li><a href="/Trabalho-Almir-phpvs/VIEW/cargo/lstCargo.php">Cargos</a></li>
         <li><a href="collapsible.html">Produtos</a></li>
         <li><a href="/Trabalho-Almir-phpvs/VIEW/logout.php">Logout</a></li>
       </ul>
